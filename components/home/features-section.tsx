@@ -13,34 +13,10 @@ import { Layers, Coins, Image, Lock, Globe, Zap } from "lucide-react";
 export function FeaturesSection() {
   const features = [
     {
-      title: "Multi-Chain Support",
-      description:
-        "Connect and interact with Ethereum, Solana, Polygon, and more from a single interface.",
-      icon: <Layers className="h-10 w-10 text-[#00f3ff]" />,
-    },
-    {
-      title: "DAO Governance",
-      description:
-        "Create, vote, and execute proposals with our intuitive governance tools.",
-      icon: <Lock className="h-10 w-10 text-[#bc00ff]" />,
-    },
-    {
       title: "NFT Marketplace",
       description:
         "Mint, trade, and showcase your digital collectibles with zero platform fees.",
       icon: <Image className="h-10 w-10 text-[#00f3ff]" />,
-    },
-    {
-      title: "DeFi Integration",
-      description:
-        "Access lending, borrowing, and yield farming protocols all in one place.",
-      icon: <Coins className="h-10 w-10 text-[#bc00ff]" />,
-    },
-    {
-      title: "Cross-Chain Bridge",
-      description:
-        "Transfer assets between blockchains seamlessly with our secure bridge.",
-      icon: <Globe className="h-10 w-10 text-[#00f3ff]" />,
     },
     {
       title: "Gas Optimization",

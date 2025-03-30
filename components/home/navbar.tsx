@@ -25,14 +25,6 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {["Features", "Protocols", "Docs", "Community"].map((item) => (
-            <NavLink key={item} href={`#${item.toLowerCase()}`}>
-              {item}
-            </NavLink>
-          ))}
-        </nav>
 
         {/* Wallet Connect Button */}
         <div className="hidden md:block">

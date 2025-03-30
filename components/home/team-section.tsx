@@ -7,52 +7,57 @@ import { Github, Twitter, Linkedin } from "lucide-react";
 export function TeamSection() {
   const team = [
     {
-      name: "Alex Rivera",
-      role: "Founder & CEO",
-      bio: "Ex-Ethereum Foundation, 8+ years in blockchain",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Jit Debnath",
+      role: "Developer",
+      bio: "Web2 from heart ",
+      image:
+        "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2EcfL01UJlA8B2dm9fC0gPJsvMEn6zkheIaXpO",
       socials: {
         twitter: "#",
         github: "#",
         linkedin: "#",
       },
-      ens: "alex.eth",
+      ens: "",
     },
     {
-      name: "Sophia Chen",
-      role: "CTO",
-      bio: "Ex-Compound, Solidity expert",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Pratham Jaiswal",
+      role: "Developer",
+      bio: "web3 expert",
+      image:
+        "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2EI9FpHcecz612d4SKJMTHQyU370YronPkNapj",
+
       socials: {
         twitter: "#",
         github: "#",
         linkedin: "#",
       },
-      ens: "sophia.eth",
+      ens: "",
     },
     {
-      name: "Marcus Johnson",
-      role: "Head of Product",
-      bio: "Previously at Uniswap Labs",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Krish Gupta",
+      role: "Developer",
+      bio: "Web3 UX specialist",
+      image:
+        "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2EdslccVBUZ879gYx1z3d0IabJOQcrH5BtpuTW",
       socials: {
         twitter: "#",
         github: "#",
         linkedin: "#",
       },
-      ens: "marcus.eth",
+      ens: "",
     },
     {
-      name: "Olivia Kim",
-      role: "Lead Designer",
-      bio: "Web3 UX specialist, NFT artist",
-      image: "/placeholder.svg?height=300&width=300",
+      name: "Rohit Kundu",
+      role: "Developer",
+      bio: "Bug fixer",
+      image:
+        "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2ESBUo4HUg2GnitkYa9ybdIZxgCUjQHvzoBF0e",
       socials: {
         twitter: "#",
         github: "#",
         linkedin: "#",
       },
-      ens: "olivia.eth",
+      ens: "",
     },
   ];
 

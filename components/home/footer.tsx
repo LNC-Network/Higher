@@ -16,10 +16,10 @@ export function Footer() {
           {/* Column 1 - About */}
           <div>
             <div className="flex items-center mb-4">
-              <div className="w-8 h-8 bg-[#00f3ff] flex items-center justify-center rounded-md font-bold text-black mr-2">
-                W3
+              <div className="p-4 h-8 bg-[#00f3ff] flex items-center justify-center rounded-md font-bold text-black mr-2">
+                Higher
               </div>
-              <span className="text-white font-bold text-lg">DecentraHub</span>
+              <span className="text-white font-bold text-lg"></span>
             </div>
             <p className="text-gray-400 mb-4">
               Building the infrastructure for the decentralized web. Empowering

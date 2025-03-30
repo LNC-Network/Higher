@@ -45,7 +45,7 @@ export default function PreferenceDialogue() {
   };
 
   return (
-    <ScrollArea className="w-[50vw] h-[85vh] rounded-lg border p-10 shadow-md bg-white">
+    <ScrollArea className="w-[50vw] h-[85vh] rounded-lg border p-10 shadow-md bg-slate-800">
       <div className="space-y-6">
         {/* Tone */}
         <Card className="shadow-sm border">
