@@ -23,6 +23,7 @@
     "@react-three/drei": "^10.0.5",
     "@react-three/fiber": "^9.1.0",
     "@tailwindcss/typography": "^0.5.16",
+    "@types/axios": "^0.14.4",
     "@uiw/react-md-editor": "^3.6.0",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
