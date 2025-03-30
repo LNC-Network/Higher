@@ -27,8 +27,8 @@ export function HeroSection() {
           </h1>
 
           <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-lg">
-            Launch DAOs, trade NFTs, and govern protocols in a trustless
-            ecosystem built for the next generation of the web.
+            Publish NFT content and sell it in the marketplace—write your own or
+            let AI handle it for you.{" "}
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
@@ -58,9 +58,9 @@ export function HeroSection() {
           {/* Live Stats */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { label: "Total Volume", value: "$2.1B+" },
-              { label: "DAOs Created", value: "12,000+" },
-              { label: "Active Users", value: "1.2M+" },
+              { label: "Easy to use", value: "Easy interface" },
+              { label: "Sell at your own price", value: "A market for all" },
+              { label: "Copywrite all the contents", value: "NFT made easy" },
             ].map((stat, index) => (
               <div
                 key={index}

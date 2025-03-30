@@ -5,7 +5,7 @@ import type React from "react";
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import ConnectWallet from "@/components/ui/ConnectWallet"
+import ConnectWallet from "@/components/ui/ConnectWallet";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -18,12 +18,11 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <div className="relative group">
-            <div className="w-10 h-10 bg-[#00f3ff] flex items-center justify-center rounded-md font-bold text-black group-hover:bg-[#bc00ff] transition-colors duration-300">
-              W3
+            <div className="w-32 h-10 bg-[#00f3ff] flex items-center justify-center rounded-md font-bold text-black group-hover:bg-[#bc00ff] group-hover:shadow-[#bc00ff] transition-all duration-300 group-hover:text-white">
+              HIGHER
             </div>
             <div className="absolute inset-0 bg-[#00f3ff] rounded-md opacity-30 group-hover:opacity-50 blur-sm group-hover:bg-[#bc00ff] transition-colors duration-300"></div>
           </div>
-          <span className="ml-2 text-white font-bold text-xl">DecentraHub</span>
         </Link>
 
         {/* Desktop Navigation */}
