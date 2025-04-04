@@ -3,7 +3,7 @@ import axios from "axios";
 import { Button } from "@/components/ui/button";
 
 const FileUpload = ({ message }: { message: string }) => {
-  const [ipfsUrl, _setIpfsUrl] = useState("");
+  const [ipfsUrl] = useState("");
   const [cid, setCid] = useState("");
   // Upload file to Pinata via your backend endpoint
   const uploadToIPFS = async () => {
@@ -39,6 +39,8 @@ const FileUpload = ({ message }: { message: string }) => {
   };
 
   // Save file details (including the user's CID and URL) into your database
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const saveFileDetails = async (data: any) => {
     try {
       await axios.post(

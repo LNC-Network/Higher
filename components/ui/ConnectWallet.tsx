@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -5,6 +6,7 @@ import { useState, useEffect } from "react";
 // Extend the Window interface to include the ethereum property
 declare global {
   interface Window {
+
     ethereum?: any;
   }
 }

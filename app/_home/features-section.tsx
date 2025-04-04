@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Image, Zap } from "lucide-react";
+import { FileImage, Zap } from "lucide-react";
 
 export function FeaturesSection() {
   const features = [
@@ -16,13 +16,13 @@ export function FeaturesSection() {
       title: "NFT Marketplace",
       description:
         "Mint, trade, and showcase your digital collectibles with zero platform fees.",
-      icon: <Image className="h-10 w-10 text-[#00f3ff]" />,
+      icon: <FileImage className="h-10 w-10 text-[#00f3ff]" />,
     },
     {
       title: "Gas Optimization",
       description:
         "Save on transaction fees with our intelligent gas optimization system.",
-      icon: <Zap className="h-10 w-10 text-[#bc00ff]" />,
+      icon: <Zap className="h-10 w-10 text-[#bc00ff]" aria-hidden="true" />,
     },
   ];
 

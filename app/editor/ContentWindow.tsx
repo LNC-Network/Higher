@@ -1,5 +1,5 @@
 "use client";
-import { CircleAlert, Lightbulb } from "lucide-react";
+import { CircleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
@@ -24,10 +24,11 @@ const ContentWindow = () => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    if (sourceRef.current) {
-      setHeight(sourceRef.current.getBoundingClientRect().height);
+    const sourceHeight = sourceRef.current?.getBoundingClientRect().height;
+    if (sourceHeight) {
+      setHeight(sourceHeight);
     }
-  }, [sourceRef.current?.getBoundingClientRect().height]);
+  }, [sourceRef.current]);
 
   return (
     <div className="w-full flex flex-col justify-center items-center h-full p-4 gap-4 bg-slate-900">

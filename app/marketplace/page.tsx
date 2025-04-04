@@ -16,6 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 const data = [
   {
@@ -229,7 +230,7 @@ const Page = () => {
               key={creator.id}
               className="bg-white/10 border border-white/20 p-6 rounded-xl w-full flex flex-col items-center text-center"
             >
-              <img
+              <Image
                 src={creator.ImageLink}
                 alt={creator.Name}
                 className="w-50 h-50 rounded-full object-cover border-4 border-amber-300 shadow-lg"
@@ -239,7 +240,7 @@ const Page = () => {
                   {creator.Name}
                 </CardTitle>
                 <CardDescription className="text-gray-300 italic">
-                  "{creator.Quote}"
+                  &quot;{creator.Quote}&quot;
                 </CardDescription>
                 <p className="text-gray-400 mt-2">
                   Articles: {creator.TotalArticles}

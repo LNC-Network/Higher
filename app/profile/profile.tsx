@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react";
 
 export function Profile() {
-  const [data, _setData] = useState<any>(null);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [data] = useState<any>(null);
 
   useEffect(() => {
 
