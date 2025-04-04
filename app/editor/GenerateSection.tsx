@@ -1,8 +1,8 @@
 import { WandSparkles, CircleX } from "lucide-react";
 import React, { useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
-import Gemini from "@/libs/Gemini";
+import Gemini from "@/lib/Gemini";
 import { GeminiResponse } from "@/types/GeminiTypes";
 import { useMessage } from "@/context/GeminiOutput";
 import { usePreference } from "@/context/preferenceContex";

@@ -1,9 +1,9 @@
-import { FeaturesSection } from "@/components/home/features-section";
-import { Footer } from "@/components/home/footer";
-import { HeroSection } from "@/components/home/hero-section";
-import { StatsSection } from "@/components/home/stats-section";
-import { TeamSection } from "@/components/home/team-section";
-import { Navbar } from "@/components/home/navbar";
+import { FeaturesSection } from "@/app/_home/features-section";
+import { Footer } from "@/app/_home/footer";
+import { HeroSection } from "@/app/_home/hero-section";
+import { StatsSection } from "@/app/_home/stats-section";
+import { TeamSection } from "@/app/_home/team-section";
+import { Navbar } from "@/app/_home/navbar";
 export default function Home() {
   return (
     <main className="h-screen flex flex-col">

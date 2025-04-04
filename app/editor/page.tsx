@@ -1,4 +1,4 @@
-import ContentWindow from "@/components/ContentWindow";
+import ContentWindow from "./ContentWindow";
 import Navbar from "@/components/Navbar";
 import { GeminiOutputContextProvider } from "@/context/GeminiOutput";
 import { PreferenceContextProvider } from "@/context/preferenceContex";

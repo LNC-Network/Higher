@@ -1,6 +1,6 @@
 "use client";
 import { CircleAlert, Lightbulb } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 import { useEffect, useRef, useState } from "react";
@@ -53,7 +53,7 @@ const ContentWindow = () => {
           {/* <Button className="flex items-center h-12 gap-2 bg-gray-700 text-white font-semibold rounded-md hover:bg-gray-600 text-sm text-center">
             Upload
           </Button> */}
-          <FileUpload /* message={message} */ />
+          <FileUpload message={message} />
         </div>
       </div>
 

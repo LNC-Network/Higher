@@ -39,7 +39,7 @@ export function HeroSection() {
               size="lg"
               className="bg-[#00f3ff] text-black hover:bg-[#00f3ff]/90 hover:shadow-[0_0_20px_rgba(0,243,255,0.5)] transition-all duration-300"
             >
-              Launch Editor
+              Publish your article
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
 

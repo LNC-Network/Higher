@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
-const FileUpload = ({ message }) => {
+const FileUpload = ({ message }: { message: string }) => {
   const [ipfsUrl, setIpfsUrl] = useState("");
   const [cid, setCid] = useState("");
   // Upload file to Pinata via your backend endpoint
@@ -19,15 +19,19 @@ const FileUpload = ({ message }) => {
 
     try {
       // Call your backend endpoint that handles Pinata upload
-      const response = await axios.post("https://b5a7-2409-4060-20b-95d3-fd67-7e87-be1b-bced.ngrok-free.app/upload-file", { file: formData }, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "https://b5a7-2409-4060-20b-95d3-fd67-7e87-be1b-bced.ngrok-free.app/upload-file",
+        { file: formData },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       const cid = response.data.cid;
-      setCid(cid)
-      console.log("Response: " + cid)
-      alert(cid)
+      setCid(cid);
+      console.log("Response: " + cid);
+      alert(cid);
       return cid;
     } catch (error) {
       console.error("Error uploading to IPFS:", error);
@@ -35,13 +39,17 @@ const FileUpload = ({ message }) => {
   };
 
   // Save file details (including the user's CID and URL) into your database
-  const saveFileDetails = async (data) => {
+  const saveFileDetails = async (data: any) => {
     try {
-      await axios.post(`https://b5a7-2409-4060-20b-95d3-fd67-7e87-be1b-bced.ngrok-free.app/get-file?fileHash=${cid}`, data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await axios.post(
+        `https://b5a7-2409-4060-20b-95d3-fd67-7e87-be1b-bced.ngrok-free.app/get-file?fileHash=${cid}`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       console.log("File details saved to the database.");
     } catch (error) {
       console.error("Error saving file details to database:", error);
@@ -64,7 +72,8 @@ const FileUpload = ({ message }) => {
   return (
     <div>
       <Button
-        onClick={handleUpload} className="bg-blue-500 hover:bg-blue-600 text-white p-6"
+        onClick={handleUpload}
+        className="bg-blue-500 hover:bg-blue-600 text-white p-6"
       >
         Upload Content to IPFS
       </Button>

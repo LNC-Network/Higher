@@ -13,7 +13,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useState } from "react";
-import { Slider } from "./ui/slider";
+import { Slider } from "@/components/ui/slider";
 import { usePreference } from "@/context/preferenceContex";
 
 export default function PreferenceDialogue() {
