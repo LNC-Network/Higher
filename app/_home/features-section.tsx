@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Layers, Coins, Image, Lock, Globe, Zap } from "lucide-react";
+import { Image, Zap } from "lucide-react";
 
 export function FeaturesSection() {
   const features = [

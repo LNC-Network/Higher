@@ -1,6 +1,5 @@
 import React from "react";
-import ConnectWallet from "./ui/ConnectWallet"; // Adjust the path if necessary
-import { Button } from "./ui/button";
+import ConnectWallet from "./ui/ConnectWallet"; 
 
 const Navbar = () => {
   return (

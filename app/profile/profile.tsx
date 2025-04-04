@@ -1,9 +1,9 @@
 "use client";
-import axios from "axios";
+// import axios from "axios";
 import { useState, useEffect } from "react";
 
 export function Profile() {
-  const [data, setData] = useState<any>(null);
+  const [data, _setData] = useState<any>(null);
 
   useEffect(() => {
 

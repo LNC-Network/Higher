@@ -3,7 +3,7 @@ import axios from "axios";
 import { Button } from "@/components/ui/button";
 
 const FileUpload = ({ message }: { message: string }) => {
-  const [ipfsUrl, setIpfsUrl] = useState("");
+  const [ipfsUrl, _setIpfsUrl] = useState("");
   const [cid, setCid] = useState("");
   // Upload file to Pinata via your backend endpoint
   const uploadToIPFS = async () => {
