@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import '@uiw/react-md-editor/markdown-editor.css';
+@import '@uiw/react-markdown-preview/markdown.css';
 /* ---break---  */
 @custom-variant dark (&:is(.dark *));
 
@@ -210,9 +212,4 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-html[data-color-mode="dark"] {
-  --color-bg-default: #0d1117 !important;
-  --color-text-default: #c9d1d9 !important;
 }
