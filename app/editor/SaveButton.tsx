@@ -21,7 +21,7 @@ export default function SaveButton() {
     if (isEmpty) return 0;
     const content = fileType === "json" ? JSON.stringify({ content: message }, null, 2) : message;
     return new Blob([content]).size;
-  }, [message, fileType]);
+  }, [message, fileType, isEmpty]);
 
   const handleDownload = () => {
     if (isEmpty) {

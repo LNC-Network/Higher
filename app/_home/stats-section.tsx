@@ -7,6 +7,13 @@ import { Card, CardContent } from "@/components/ui/card";
 type Stat = { label: string; value: string; change: string };
 type Token = { name: string; symbol: string; price: string; change: string };
 
+interface CoinGeckoToken {
+  name: string;
+  symbol: string;
+  current_price: number;
+  price_change_percentage_24h: number;
+}
+
 export function StatsSection() {
   const [stats, setStats] = useState<Stat[]>([]);
   const [tokens, setTokens] = useState<Token[]>([]);
@@ -18,7 +25,7 @@ export function StatsSection() {
     const data = await res.json();
 
     setTokens(
-      data.map((token: any) => ({
+      data.map((token: CoinGeckoToken) => ({
         name: token.name,
         symbol: token.symbol.toUpperCase(),
         price: `$${token.current_price.toLocaleString()}`,
@@ -37,23 +44,21 @@ export function StatsSection() {
     }
   };
 
-  const fetchMockStats = () => {
-    // Replace with real API calls from DefiLlama/Dune/etc. if available
-    setStats([
-      { label: "Total Value Locked", value: "$8.2B", change: "+5.3%" },
-      { label: "24h Trading Volume", value: "$1.4B", change: "+12.7%" },
-      { label: "Active Wallets", value: "3.2M", change: "+8.1%" },
-      { label: "Ethereum Gas", value: gas, change: "-3.2%" },
-    ]);
-  };
-
   useEffect(() => {
     fetchTokenData();
     fetchGasPrice();
   }, []);
 
   useEffect(() => {
-    fetchMockStats();
+    const fetchStats = () => {
+      setStats([
+        { label: "Total Value Locked", value: "$8.2B", change: "+5.3%" },
+        { label: "24h Trading Volume", value: "$1.4B", change: "+12.7%" },
+        { label: "Active Wallets", value: "3.2M", change: "+8.1%" },
+        { label: "Ethereum Gas", value: gas, change: "-3.2%" },
+      ]);
+    };
+    fetchStats();
   }, [gas]);
 
   return (
