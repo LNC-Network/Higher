@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev-debug": "set NODE_OPTIONS=--inspect && next dev",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
@@ -46,6 +47,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "7.1.2",
+    "rehype-raw": "^7.0.0",
     "rehype-sanitize": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "sonner": "^2.0.3",
