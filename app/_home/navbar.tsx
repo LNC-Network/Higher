@@ -48,7 +48,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-black/80 backdrop-blur-lg border-t border-[#00f3ff]/20 border-b border-[#00f3ff]/20"
+            className="md:hidden absolute top-full left-0 right-0 bg-black/80 backdrop-blur-lg border-t border-[#00f3ff]/20 border-b"
           >
             <div className="flex flex-col p-6 space-y-4">
               {["Features", "Protocols", "Docs", "Community"].map((item) => (
