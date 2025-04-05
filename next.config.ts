@@ -1,7 +1,6 @@
-// next.config.js or next.config.ts
-const removeImports = require("next-remove-imports")();
-
-const nextConfig = {
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig: import('next').NextConfig = {
   images: {
     domains: ["oagsprvqqc.ufs.sh"],
   },
@@ -10,4 +9,4 @@ const nextConfig = {
   },
 };
 
-module.exports = removeImports(nextConfig);
+module.exports = nextConfig;

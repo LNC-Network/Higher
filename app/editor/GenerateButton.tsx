@@ -1,3 +1,4 @@
+"use client";
 import { Sparkles, CircleX } from "lucide-react";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
