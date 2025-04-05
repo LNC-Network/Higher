@@ -100,6 +100,8 @@ export function TeamSection() {
                 <Image
                   src={member.image || "/placeholder.svg"}
                   alt={member.name}
+                  width={250}
+                  height={250}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>

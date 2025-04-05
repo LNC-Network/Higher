@@ -6,7 +6,10 @@ import "@uiw/react-markdown-preview/markdown.css";
 import { useEffect, useRef, useState } from "react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import GenerateSection from "./GenerateSection";
-import MDEditor from "@uiw/react-md-editor";
+import dynamic from "next/dynamic";
+const MDEditor = dynamic(() => import("@uiw/react-md-editor"), {
+  ssr: false,
+});
 import { useMessage } from "@/context/GeminiOutput";
 import PreferenceDialouge from "./preference";
 import {

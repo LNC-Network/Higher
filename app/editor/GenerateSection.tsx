@@ -10,6 +10,8 @@ import { usePreference } from "@/context/preferenceContex";
 const GenerateSection = () => {
   const [MessageValue, setMessageValue] = useState("");
   const [PromptValue, setPromptValue] = useState("");
+  const [Loading, setLoading] = useState(true);
+
   const { setMessage } = useMessage("");
   const { preference } = usePreference();
 
@@ -32,8 +34,10 @@ const GenerateSection = () => {
       const generatedText =
         parts.map((p) => p.text).join(" ") || "No response generated.";
       setMessage(generatedText);
+      setLoading(false);
     } catch (error) {
       console.error("Error generating response:", error);
+      setLoading(false);
     }
   };
 
