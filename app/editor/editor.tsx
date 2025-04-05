@@ -48,7 +48,7 @@ const Editor = () => {
       </nav>
 
       {/* Markdown Editor */}
-      <div ref={sourceRef} className="w-full flex-1 h-[50vh] rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.3)] border border-white/10 bg-slate-800">
+      <div ref={sourceRef} data-color-mode="dark" className="w-full flex-1 h-[50vh] rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.3)] border border-white/10 bg-slate-800">
         <MDEditor value={message} height={height} onChange={(val) => setMessage(val || "")} visiableDragbar={false} />
       </div>
     </div>

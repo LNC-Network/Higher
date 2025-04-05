@@ -1,20 +1,8 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
@@ -99,8 +87,7 @@ const Creator = [
   {
     id: 1,
     Name: "Krish Gupta",
-    ImageLink:
-      "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2EdslccVBUZ879gYx1z3d0IabJOQcrH5BtpuTW",
+    ImageLink: "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2EdslccVBUZ879gYx1z3d0IabJOQcrH5BtpuTW",
     Quote: "The word shall see pain",
     TotalArticles: 30,
     Rating: 9.9,
@@ -108,8 +95,7 @@ const Creator = [
   {
     id: 2,
     Name: "Rohit Kundu",
-    ImageLink:
-      "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2ESBUo4HUg2GnitkYa9ybdIZxgCUjQHvzoBF0e",
+    ImageLink: "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2ESBUo4HUg2GnitkYa9ybdIZxgCUjQHvzoBF0e",
     Quote: "Bankai",
     TotalArticles: 10,
     Rating: 8.0,
@@ -118,8 +104,7 @@ const Creator = [
   {
     id: 3,
     Name: "Pratham Jaiswal",
-    ImageLink:
-      "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2EI9FpHcecz612d4SKJMTHQyU370YronPkNapj",
+    ImageLink: "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2EI9FpHcecz612d4SKJMTHQyU370YronPkNapj",
     Quote: "nah I'd win",
     TotalArticles: 20,
     Rating: 9.9,
@@ -136,23 +121,12 @@ const Page = () => {
         <h1 className="text-5xl font-bold">
           <span className="text-white">Discover, Collect, and Trade</span>
           <br />
-          <span className="bg-gradient-to-r from-[#bc00ff] to-[#00f3ff] bg-clip-text text-transparent">
-            Unique Digital Content
-          </span>
+          <span className="bg-gradient-to-r from-[#bc00ff] to-[#00f3ff] bg-clip-text text-transparent">Unique Digital Content</span>
         </h1>
-        <h2 className="text-gray-400 text-xl mt-4">
-          Explore a curated marketplace of premium digital content as NFTs. Own
-          and trade literary works, technical documentation, art, and more.
-        </h2>
-        <input
-          type="search"
-          className="mx-auto border-2 border-gray-300 w-2/4 p-3 pr-10 placeholder-gray-200 rounded-md focus:ring-2 focus:ring-yellow-500 mt-6"
-          placeholder="Search Contents..."
-        />
+        <h2 className="text-gray-400 text-xl mt-4">Explore a curated marketplace of premium digital content as NFTs. Own and trade literary works, technical documentation, art, and more.</h2>
+        <input type="search" className="mx-auto border-2 border-gray-300 w-2/4 p-3 pr-10 placeholder-gray-200 rounded-md focus:ring-2 focus:ring-yellow-500 mt-6" placeholder="Search Contents..." />
         <div className="flex justify-center mt-4">
-          <Button className="bg-blue-600 text-white hover:bg-blue-700 p-5 w-32">
-            Search
-          </Button>
+          <Button className="bg-blue-600 text-white hover:bg-blue-700 p-5 w-32">Search</Button>
         </div>
         {/* sorter.................... */}
         <div className="flex justify-end gap-2 text-black mt-12">
@@ -201,18 +175,12 @@ const Page = () => {
           {data.map((item) => (
             <Card key={item.id} className="bg-white/10 border border-white/20">
               <CardHeader>
-                <CardTitle className="text-white text-3xl">
-                  {item.Title}
-                </CardTitle>
+                <CardTitle className="text-white text-3xl">{item.Title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-gray-300">
-                  {item.Description}
-                </CardDescription>
+                <CardDescription className="text-gray-300">{item.Description}</CardDescription>
                 <div className="flex justify-evenly mt-4">
-                  <Badge variant={item.price == 0 ? "secondary" : "default"}>
-                    {item.price == 0 ? "free" : "Price: " + item.price}
-                  </Badge>
+                  <Badge variant={item.price == 0 ? "secondary" : "default"}>{item.price == 0 ? "free" : "Price: " + item.price}</Badge>
                   {item.price != 0 && <Button className="w-16">Bid</Button>}
                 </div>
               </CardContent>
@@ -226,28 +194,13 @@ const Page = () => {
         {/* Creator content card */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
           {Creator.map((creator) => (
-            <Card
-              key={creator.id}
-              className="bg-white/10 border border-white/20 p-6 rounded-xl w-full flex flex-col items-center text-center"
-            >
-              <Image
-                src={creator.ImageLink}
-                alt={creator.Name}
-                className="w-50 h-50 rounded-full object-cover border-4 border-amber-300 shadow-lg"
-              />
+            <Card key={creator.id} className="bg-white/10 border border-white/20 p-6 rounded-xl w-full flex flex-col items-center text-center">
+              <Image src={creator.ImageLink} alt={creator.Name} height={250} width={250} className="w-50 h-50 rounded-full object-cover border-4 border-amber-300 shadow-lg" />
               <CardContent className="flex flex-col items-center">
-                <CardTitle className="text-white text-2xl mt-4">
-                  {creator.Name}
-                </CardTitle>
-                <CardDescription className="text-gray-300 italic">
-                  &quot;{creator.Quote}&quot;
-                </CardDescription>
-                <p className="text-gray-400 mt-2">
-                  Articles: {creator.TotalArticles}
-                </p>
-                <p className="text-yellow-400 font-bold mt-1">
-                  Rating: {creator.Rating}
-                </p>
+                <CardTitle className="text-white text-2xl mt-4">{creator.Name}</CardTitle>
+                <CardDescription className="text-gray-300 italic">&quot;{creator.Quote}&quot;</CardDescription>
+                <p className="text-gray-400 mt-2">Articles: {creator.TotalArticles}</p>
+                <p className="text-yellow-400 font-bold mt-1">Rating: {creator.Rating}</p>
               </CardContent>
             </Card>
           ))}
