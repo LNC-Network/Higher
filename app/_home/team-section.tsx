@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Github, Twitter, Linkedin } from "lucide-react";
+import Image from "next/image";
 
 export function TeamSection() {
   const team = [
@@ -96,7 +97,7 @@ export function TeamSection() {
           >
             <Card className="bg-black/40 backdrop-blur-md border border-white/10 hover:border-[#00f3ff]/30 transition-all duration-300 overflow-hidden">
               <div className="relative h-64 overflow-hidden">
-                <img
+                <Image
                   src={member.image || "/placeholder.svg"}
                   alt={member.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

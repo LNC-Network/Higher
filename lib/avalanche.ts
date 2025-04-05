@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+/* import { ethers } from "ethers";
 
 const AVALANCHE_RPC_URL = process.env.NEXT_PUBLIC_AVALANCHE_RPC_URL;
 const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_SMART_CONTRACT_ADDRESS;
@@ -7,8 +7,6 @@ const PRIVATE_KEY = process.env.NEXT_PUBLIC_PRIVATE_KEY;
 const contractABI = [
   // Add your smart contract's ABI here
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
 contract FileStorage {
     struct File {
         string ipfsHash;
@@ -70,3 +68,4 @@ export const retrieveFileHash = async (): Promise<string> => {
     throw error;
   }
 };
+ */

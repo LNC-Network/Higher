@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import ConnectWallet from "@/components/ui/ConnectWallet";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,25 +72,25 @@ export function Navbar() {
   );
 }
 
-function NavLink({
-  href,
-  children,
-  className,
-}: {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className={cn(
-        "relative text-white font-medium hover:text-[#00f3ff] transition-colors duration-300 group",
-        className
-      )}
-    >
-      {children}
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00f3ff] to-[#bc00ff] group-hover:w-full transition-all duration-300"></span>
-    </Link>
-  );
-}
+// function NavLink({
+//   href,
+//   children,
+//   className,
+// }: {
+//   href: string;
+//   children: React.ReactNode;
+//   className?: string;
+// }) {
+//   return (
+//     <Link
+//       href={href}
+//       className={cn(
+//         "relative text-white font-medium hover:text-[#00f3ff] transition-colors duration-300 group",
+//         className
+//       )}
+//     >
+//       {children}
+//       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00f3ff] to-[#bc00ff] group-hover:w-full transition-all duration-300"></span>
+//     </Link>
+//   );
+// }

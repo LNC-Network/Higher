@@ -24,11 +24,19 @@ const ContentWindow = () => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    const sourceHeight = sourceRef.current?.getBoundingClientRect().height;
-    if (sourceHeight) {
-      setHeight(sourceHeight);
-    }
-  }, [sourceRef.current]);
+    const updateHeight = () => {
+      const sourceHeight = sourceRef.current?.getBoundingClientRect().height;
+      if (sourceHeight) {
+        setHeight(sourceHeight);
+      }
+    };
+
+    updateHeight();
+
+    // Optional: Add resize listener to handle window resizing
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []); // Remove sourceRef.current from dependency array
 
   return (
     <div className="w-full flex flex-col justify-center items-center h-full p-4 gap-4 bg-slate-900">
@@ -50,10 +58,6 @@ const ContentWindow = () => {
               <PreferenceDialouge />
             </DialogContent>
           </Dialog>
-          {/* Optimize SEO ..................................... */}
-          {/* <Button className="flex items-center h-12 gap-2 bg-gray-700 text-white font-semibold rounded-md hover:bg-gray-600 text-sm text-center">
-            Upload
-          </Button> */}
           <FileUpload message={message} />
         </div>
       </div>

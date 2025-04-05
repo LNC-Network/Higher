@@ -3,18 +3,15 @@ import {
   GeminiRequest,
   GeminiInput,
 } from "@/types/GeminiTypes";
-import { usePreference } from "@/context/preferenceContex";
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 const URL = process.env.NEXT_PUBLIC_URL;
-
+import { PreferenceType } from "@/types/PreferenceTypes";
 type ResponsePromise = Promise<GeminiResponse | null>;
-
 export default async function Gemini({
   Prompt,
   Message,
-  Preference, // Accept preference as an argument
-}: GeminiInput & { Preference?: any }): ResponsePromise {
-
+  Preference,
+}: GeminiInput & { Preference?: PreferenceType }): ResponsePromise {
   const finalPrompt = Prompt && Prompt.trim() !== "" ? Prompt : "";
 
   const preferenceText = Preference
