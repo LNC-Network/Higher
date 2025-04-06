@@ -3,10 +3,10 @@ import {
   GeminiRequest,
   GeminiInput,
 } from "@/types/GeminiTypes";
-const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-const URL = process.env.NEXT_PUBLIC_URL;
 import { PreferenceType } from "@/types/PreferenceTypes";
+
 type ResponsePromise = Promise<GeminiResponse | null>;
+
 export default async function Gemini({
   Prompt,
   Message,
@@ -29,28 +29,21 @@ export default async function Gemini({
   const combinedMessage = `${finalPrompt} \n ${preferenceText} \n Don't write anything else except the actual content \n ${Message}`;
 
   try {
-    const requestBody: GeminiRequest = {
-      contents: [
-        {
-          role: "user",
-          parts: [{ text: combinedMessage }],
-        },
-      ],
-    };
-
-    const response = await fetch(`${URL}?key=${API_KEY}`, {
-      method: "POST",
+    const response = await fetch('/api/gemini', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(requestBody),
+      body: JSON.stringify({
+        prompt: combinedMessage
+      }),
     });
 
     if (!response.ok) {
       console.error(`HTTP error! status: ${response.status}`);
       return null;
     }
-    console.log(combinedMessage);
+
     const data: GeminiResponse = await response.json();
     return data;
   } catch (error) {
