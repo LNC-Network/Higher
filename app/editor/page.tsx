@@ -20,8 +20,8 @@ const Page = () => {
         <PreferenceContextProvider>
           <div className="w-full h-full flex flex-col items-center px-6 py-2 bg-slate-900 text-white">
             {/* Navbar */}
-            <header className="w-full py-4 px-4 md:px-8 z-50 relative bg-slate-900">
-              <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <header className="w-full py-4 px-2 md:px-2 z-50 relative bg-slate-900">
+              <div className="mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <h1 className="bg-gradient-to-r from-[#bc00ff] to-[#00f3ff] bg-clip-text text-transparent text-2xl font-bold">Higher Writer</h1>
 
