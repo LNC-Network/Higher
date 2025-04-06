@@ -64,7 +64,12 @@ const ConnectWallet: React.FC = () => {
   return (
     <div>
       {account ? (
-        <Avatar>
+        <Avatar
+          onClick={() => {
+            router.push("/profile");
+          }}
+          className="cursor-pointer w-10 h-10"
+        >
           <AvatarImage src="" />
           <AvatarFallback>{account.slice(2, 4).toUpperCase()}</AvatarFallback>
         </Avatar>

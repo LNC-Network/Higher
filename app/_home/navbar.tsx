@@ -13,18 +13,14 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full py-4 px-4 md:px-8 z-50 relative">
+    <header className="w-full py-4 px-4 md:px-10 z-50 fixed backdrop-blur-3xl ">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <div className="relative group">
-            <div className="w-32 h-10 bg-[#00f3ff] flex items-center justify-center rounded-md font-bold text-black group-hover:bg-[#bc00ff] group-hover:shadow-[#bc00ff] transition-all duration-300 group-hover:text-white">
-              HIGHER
-            </div>
-            <div className="absolute inset-0 bg-[#00f3ff] rounded-md opacity-30 group-hover:opacity-50 blur-sm group-hover:bg-[#bc00ff] transition-colors duration-300"></div>
+            <div className="w-32 h-10 text-4xl flex items-center justify-center rounded-md font-bold text-White">HIGHER</div>
           </div>
         </Link>
-
 
         {/* Wallet Connect Button */}
         <div className="hidden md:block">
@@ -32,10 +28,7 @@ export function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="md:hidden text-white p-2" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -43,21 +36,10 @@ export function Navbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-black/80 backdrop-blur-lg border-t border-[#00f3ff]/20 border-b"
-          >
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.2 }} className="md:hidden absolute top-full left-0 right-0 bg-black/80 backdrop-blur-lg border-t border-[#00f3ff]/20 border-b">
             <div className="flex flex-col p-6 space-y-4">
               {["Features", "Protocols", "Docs", "Community"].map((item) => (
-                <Link
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-white hover:text-[#00f3ff] py-2 text-lg transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
+                <Link key={item} href={`#${item.toLowerCase()}`} className="text-white hover:text-[#00f3ff] py-2 text-lg transition-colors" onClick={() => setIsOpen(false)}>
                   {item}
                 </Link>
               ))}

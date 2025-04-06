@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 export function HeroSection() {
   const router = useRouter();
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+    <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto mt-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left side - Text & CTA */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -26,7 +26,7 @@ export function HeroSection() {
                 router.push("/editor");
               }}
               size="lg"
-              className="bg-[#00f3ff] text-black hover:bg-[#00f3ff]/90 hover:shadow-[0_0_20px_rgba(0,243,255,0.5)] transition-all duration-300"
+              className="bg-[#00f3ff] text-black hover:bg-[#00f3ff]/90 hover:shadow-[0_0_20px_rgba(0,243,255,0.5)] transition-all duration-300 cursor-pointer"
             >
               <SquarePen className="ml-2 h-4 w-4" />
               Write your article
@@ -38,7 +38,7 @@ export function HeroSection() {
               }}
               variant="outline"
               size="lg"
-              className="border-[#bc00ff] text-white hover:bg-[#bc00ff]/10 hover:border-[#bc00ff] transition-all duration-300 hover:text-white"
+              className="border-[#bc00ff] text-white hover:bg-[#bc00ff]/10 hover:border-[#bc00ff] transition-all duration-300 hover:text-white cursor-pointer"
             >
               <Store className="ml-2 h-4 w-4" />
               Explore Marketplace
