@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { toast } from "sonner";
@@ -9,12 +11,10 @@ import { useRouter } from "next/navigation";
 const ConnectWallet: React.FC = () => {
   const [account, setAccount] = useState<string | null>(null);
   const [isConnecting, setIsConnecting] = useState<boolean>(false);
-
   const router = useRouter();
 
   const checkConnection = async () => {
     if (typeof window === "undefined" || !window.ethereum) return;
-
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const currentAccounts = await provider.send("eth_accounts", []);
@@ -35,26 +35,39 @@ const ConnectWallet: React.FC = () => {
       toast.warning("MetaMask not detected. Please install MetaMask.");
       return;
     }
-
     if (isConnecting) return;
-
     setIsConnecting(true);
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
-      const currentAccounts = await provider.send("eth_accounts", []);
+      const signer = await provider.getSigner();
+      const address = await signer.getAddress();
 
-      if (currentAccounts.length > 0) {
-        setAccount(currentAccounts[0]);
-      } else {
-        const accounts = await provider.send("eth_requestAccounts", []);
-        setAccount(accounts[0]);
-        toast.success("Connected to MetaMask successfully");
+      // Generate message to sign (can be dynamic, e.g., include a timestamp)
+      const message = `Sign this message to login at ${new Date().toISOString()}`;
+      const signature = await signer.signMessage(message);
+
+      // Send wallet data to our secure API route
+      const res = await fetch("/api/auth/wallet", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ address, message, signature }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        toast.error(data.error || "Something went wrong");
+        return;
       }
+
+      setAccount(address);
+      toast.success("Wallet connected and authenticated!");
+      router.push("/profile");
     } catch (error: any) {
       if (error.code === -32002) {
-        toast.warning("A connection request is already pending. Please complete it in MetaMask.");
+        toast.warning("A connection request is already pending in MetaMask.");
       } else {
         console.error("Error connecting to MetaMask:", error);
+        toast.error("Failed to connect wallet");
       }
     } finally {
       setIsConnecting(false);
@@ -70,19 +83,13 @@ const ConnectWallet: React.FC = () => {
           }}
           className="cursor-pointer w-10 h-10"
         >
-          <AvatarImage src="" />
+          <AvatarImage src="" alt="User Avatar" />
           <AvatarFallback>{account.slice(2, 4).toUpperCase()}</AvatarFallback>
         </Avatar>
       ) : isConnecting ? (
         <Image onClick={() => router.push("/profile")} src="/spinning-dots.svg" height={50} width={50} alt="spinning svg" />
       ) : (
-        <Button
-          className="bg-cyan-500 hover:bg-cyan-500 text-black font-semibold py-2 px-4 rounded 
-              hover:shadow-[0px_0px_15px_#06b6d4] 
-             transition-all duration-300"
-          onClick={connectWallet}
-          disabled={isConnecting}
-        >
+        <Button className="bg-cyan-500 hover:bg-cyan-500 text-black font-semibold py-2 px-4 rounded hover:shadow-[0px_0px_15px_#06b6d4] transition-all duration-300" onClick={connectWallet} disabled={isConnecting}>
           {isConnecting ? "Connecting..." : "Connect Wallet"}
         </Button>
       )}
