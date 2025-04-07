@@ -35,6 +35,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@web3-storage/w3up-client": "^17.2.0",
     "autoprefixer": "^10.4.21",
+    "axios": "^1.8.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
