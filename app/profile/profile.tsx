@@ -2,24 +2,7 @@
 
 import { MapPin, Link as LinkIcon, Mail, Users, Calendar, Hexagon, Wallet, ExternalLink, Shield } from "lucide-react";
 
-interface UserData {
-  avatarUrl: string | null;
-  name: string;
-  username: string;
-  bio: string;
-  followers: number;
-  following: number;
-  location: string;
-  email: string;
-  website: string;
-  joinDate: string;
-  // Web3 specific fields
-  walletAddress?: string;
-  ensName?: string;
-  tokenBalance?: number;
-  nftCount?: number;
-  verificationBadge?: boolean;
-}
+import type { UserData } from "@/types/profile";
 
 export const ProfileSidebar = (userData: UserData) => {
   // Truncate wallet address for display

@@ -2,22 +2,7 @@
 
 import { useState } from "react";
 import { BookOpen, Star, Calendar, Search, Zap, TrendingUp, Clock, Filter, ArrowRight, Tag, BarChart3, Shield } from "lucide-react";
-
-interface Article {
-  id: number;
-  title: string;
-  description: string;
-  publishedAt: string;
-  readTime: number;
-  stars: number;
-  tags: string[];
-  coverImage: string | null;
-  // Web3 specific fields
-  tokenGated?: boolean;
-  blockchain?: string;
-  tokenReward?: number;
-  nftRequired?: string;
-}
+import type { Article } from "@/types/profile";
 
 // Article Card Component with Web3 styling
 export const ArticleCard = ({ article }: { article: Article }) => {

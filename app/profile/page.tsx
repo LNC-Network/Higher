@@ -1,81 +1,83 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { ProfileSidebar } from "./profile";
 import { ArticlesList } from "./article-card";
+import type { UserData, Article } from "@/types/profile";
 
 export default function Profile() {
-  // Sample data - in a real app, you would fetch this from an API
-  const userData = {
-    name: "0xShadowMaster",
-    username: "shadowmaster.eth",
-    avatarUrl: null, // Will use placeholder
-    bio: "Web3 developer and NFT artist. Building the decentralized future one block at a time. DAO contributor and DeFi enthusiast.",
-    followers: 1289,
-    following: 421,
-    location: "Crypto Valley, Zug",
-    email: "shadow@web3domain.eth",
-    website: "https://shadowmaster.crypto",
-    joinDate: "April 2023",
-    // Web3 specific fields
-    walletAddress: "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
-    ensName: "shadowmaster.eth",
-    tokenBalance: 3.42,
-    nftCount: 16,
-    verificationBadge: true,
-  };
+  const [userData, setUserData] = useState<UserData | null>(null);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [isOwnProfile, setIsOwnProfile] = useState(false);
 
-  const articles = [
-    {
-      id: 1,
-      title: "Understanding Zero-Knowledge Proofs for Web3 Privacy",
-      description: "Learn how ZK-proofs are revolutionizing privacy in blockchain applications while maintaining transaction verification integrity.",
-      publishedAt: "April 2, 2025",
-      readTime: 8,
-      stars: 142,
-      tags: ["ZK-Proofs", "Privacy", "Ethereum", "Cryptography"],
-      coverImage: null, // Will use placeholder
-      tokenGated: false,
-      blockchain: "Ethereum",
-      tokenReward: 5,
-    },
-    {
-      id: 2,
-      title: "Building Decentralized Autonomous Organizations (DAOs)",
-      description: "A comprehensive guide to creating, governing, and scaling DAOs with modern tools and frameworks.",
-      publishedAt: "March 15, 2025",
-      readTime: 12,
-      stars: 278,
-      tags: ["DAO", "Governance", "Smart Contracts", "Web3"],
-      coverImage: null, // Will use placeholder
-      tokenGated: true,
-      blockchain: "Polygon",
-      nftRequired: "Governance Pass",
-    },
-    {
-      id: 3,
-      title: "DeFi Lending Protocols: Risks and Opportunities",
-      description: "Analyze the different lending protocols in DeFi, their yield strategies, and potential risks for participants.",
-      publishedAt: "February 28, 2025",
-      readTime: 15,
-      stars: 165,
-      tags: ["DeFi", "Lending", "Yield", "Finance"],
-      coverImage: null, // Will use placeholder
-      blockchain: "Multi-chain",
-      tokenReward: 8,
-    },
-    {
-      id: 4,
-      title: "NFT Marketplaces: Building the Next Generation",
-      description: "Technical deep dive into creating scalable NFT marketplaces with advanced features like fractional ownership and royalty enforcement.",
-      publishedAt: "January 20, 2025",
-      readTime: 10,
-      stars: 203,
-      tags: ["NFT", "Marketplace", "Development", "Smart Contracts"],
-      coverImage: null, // Will use placeholder
-      tokenGated: true,
-      blockchain: "Solana",
-    },
-  ];
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        // Get URL parameters to see if we're requesting a specific profile
+        const params = new URLSearchParams(window.location.search);
+        const username = params.get("username");
+        const address = params.get("address");
+
+        // Construct the API URL with any query parameters
+        let apiUrl = "/api/auth/profile";
+        if (username) {
+          apiUrl += `?username=${encodeURIComponent(username)}`;
+        } else if (address) {
+          apiUrl += `?address=${encodeURIComponent(address)}`;
+        }
+
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+          throw new Error(`Error fetching profile: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+          throw new Error(data.error);
+        }
+
+        setUserData(data.profile);
+        setArticles(data.articles);
+        setIsOwnProfile(data.isOwnProfile);
+      } catch (err: any) {
+        console.error("Failed to load profile:", err);
+        setError(err.message || "Failed to load profile data");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfileData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-gray-950 to-black text-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-t-blue-500 border-r-transparent border-b-purple-500 border-l-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading profile data...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !userData) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-gray-950 to-black text-white flex items-center justify-center">
+        <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 max-w-md mx-auto text-center">
+          <h2 className="text-xl font-bold text-red-400 mb-2">Profile Not Found</h2>
+          <p className="text-gray-400 mb-4">{error || "Could not load profile data"}</p>
+          <button onClick={() => (window.location.href = "/")} className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg transition">
+            Return Home
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 to-black text-white overflow-y-auto">
@@ -97,7 +99,11 @@ export default function Profile() {
 
           <div className="flex items-center space-x-4">
             <button className="bg-gray-800 hover:bg-gray-700 text-gray-300 px-4 py-2 rounded-lg border border-gray-700 transition">Dashboard</button>
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg transition shadow-lg shadow-purple-900/20">Connect Wallet</button>
+            {!isOwnProfile ? (
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg transition shadow-lg shadow-purple-900/20">Connect Wallet</button>
+            ) : (
+              <button className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-4 py-2 rounded-lg transition shadow-lg shadow-teal-900/20">Edit Profile</button>
+            )}
           </div>
         </div>
 
