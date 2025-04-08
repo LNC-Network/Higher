@@ -1,6 +1,5 @@
 import {
   GeminiResponse,
-  GeminiRequest,
   GeminiInput,
 } from "@/types/GeminiTypes";
 import { PreferenceType } from "@/types/PreferenceTypes";

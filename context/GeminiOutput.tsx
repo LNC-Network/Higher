@@ -14,18 +14,10 @@ const MessageContext = createContext<MessageContextType>({
 
 // Provider Component
 
-export const GeminiOutputContextProvider = ({
-  children,
-}: {
-  children: ReactNode;
-}) => {
+export const GeminiOutputContextProvider = ({ children }: { children: ReactNode }) => {
   const [message, setMessage] = useState("");
 
-  return (
-    <MessageContext.Provider value={{ message, setMessage }}>
-      {children}
-    </MessageContext.Provider>
-  );
+  return <MessageContext.Provider value={{ message, setMessage }}>{children}</MessageContext.Provider>;
 };
 
 export const useMessage = (p0: string) => useContext(MessageContext);
