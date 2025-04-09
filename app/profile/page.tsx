@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { ProfileSidebar } from "./profile";
-import { ArticlesList } from "./article-card";
 import type { UserData, Article } from "@/types/profile";
 
 export default function Profile() {
@@ -115,7 +114,7 @@ export default function Profile() {
 
           {/* Right column: Published articles */}
           <div className="lg:w-2/3">
-            <ArticlesList articles={articles} />
+            
           </div>
         </div>
       </div>

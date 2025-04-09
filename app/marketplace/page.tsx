@@ -5,79 +5,61 @@ import React from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-
-const data = [
+import { ArticleCard } from "@/components/shared/article-card";
+import { Article } from "@/types/profile";
+/* interface Article {
+  id: number;
+  title: string;
+  description: string;
+  publishedAt: string;
+  readTime: number;
+  stars: number;
+  tags: string[];
+  coverImage: string | null;
+  // Web3 specific fields
+  tokenGated?: boolean;
+  blockchain?: string;
+  tokenReward?: number;
+  nftRequired?: string;
+} */
+const content: Article[] = [
   {
     id: 1,
-    Title: "title 1",
-    Description: "Part content",
-    price: 10,
+    title: "The Future of Blockchain Technology",
+    description: "An in-depth analysis of emerging blockchain trends and their impact on various industries.",
+    publishedAt: "2024-01-15",
+    readTime: 12,
+    stars: 156,
+    tags: ["Blockchain", "Technology", "Web3"],
+    coverImage: "https://example.com/blockchain-cover.jpg",
+    tokenGated: true,
+    blockchain: "Ethereum",
+    tokenReward: 50,
+    views: 200,
   },
   {
     id: 2,
-    Title: "title 2",
-    Description: "Part content",
-    price: 10,
+    title: "Understanding Zero-Knowledge Proofs",
+    description: "A comprehensive guide to ZK-proofs and their applications in cryptocurrency.",
+    publishedAt: "2024-01-10",
+    readTime: 15,
+    stars: 89,
+    tags: ["Cryptography", "ZK-Proofs", "Privacy"],
+    coverImage: "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2EdslccVBUZ879gYx1z3d0IabJOQcrH5BtpuTW",
+    nftRequired: "0x123abc",
+    views: 300,
   },
   {
     id: 3,
-    Title: "title 3",
-    Description: "Part content",
-    price: 10,
-  },
-  {
-    id: 4,
-    Title: "title 3",
-    Description: "Part content",
-    price: 10,
-  },
-  {
-    id: 5,
-    Title: "title 3",
-    Description: "Part content",
-    price: 10,
-  },
-  {
-    id: 6,
-    Title: "title 3",
-    Description: "Part content",
-    price: 10,
-  },
-  {
-    id: 7,
-    Title: "title 3",
-    Description: "Part content",
-    price: 10,
-  },
-  {
-    id: 8,
-    Title: "title 3",
-    Description: "Part content",
-    price: 10,
-  },
-  {
-    id: 9,
-    Title: "title 3",
-    Description: "Part content",
-    price: 10,
-  },
-  {
-    id: 10,
-    Title: "title 3",
-    Description: "Part content",
-    price: 10,
-  },
-  {
-    id: 11,
-    Title: "title 3",
-    Description: "Part content",
-    price: 10,
-  },
-  {
-    id: 12,
-    Title: "title 3",
-    Description: "Part content",
-    price: 0,
+    title: "Web3 Development Best Practices",
+    description: "Essential guidelines for building secure and scalable decentralized applications.",
+    publishedAt: "2024-01-05",
+    readTime: 8,
+    stars: 234,
+    tags: ["Web3", "Development", "DApps"],
+    coverImage: "https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2EdslccVBUZ879gYx1z3d0IabJOQcrH5BtpuTW",
+    tokenReward: 25,
+    views: 400,
   },
 ];
 
@@ -171,22 +153,9 @@ const Page = () => {
           </Select>
         </div>
         {/* Cards........................... */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
-          {data.map((item) => (
-            <Card key={item.id} className="bg-white/10 border border-white/20">
-              <CardHeader>
-                <CardTitle className="text-white text-3xl">{item.Title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-300">{item.Description}</CardDescription>
-                <div className="flex justify-evenly mt-4">
-                  <Badge variant={item.price == 0 ? "secondary" : "default"}>{item.price == 0 ? "free" : "Price: " + item.price}</Badge>
-                  {item.price != 0 && <Button className="w-16">Bid</Button>}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        {content.map((article: Article) => (
+          <ArticleCard key={article.id} article={article} />
+        ))}
         {/* Load More */}
         <div className="mt-5" onClick={handelOnClick}>
           <Button className="rounded-3xl w-32">Load More</Button>

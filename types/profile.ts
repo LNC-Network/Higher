@@ -18,6 +18,7 @@ interface UserData {
 }
 
 interface Article {
+  views: any;
   id: number;
   title: string;
   description: string;
