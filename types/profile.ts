@@ -1,21 +1,24 @@
-interface UserData {
-  avatarUrl: string | null;
+type UserData = {
   name: string;
   username: string;
-  bio: string;
-  followers: number;
-  following: number;
-  location: string;
-  email: string;
-  website: string;
-  joinDate: string;
-  // Web3 specific fields
-  walletAddress?: string;
   ensName?: string;
+  avatarUrl?: string;
+  verificationBadge?: boolean;
+  walletAddress?: string;
+  bio?: string;
   tokenBalance?: number;
   nftCount?: number;
-  verificationBadge?: boolean;
-}
+  followers?: number;
+  following?: number;
+  location?: string;
+  email?: string;
+  website?: string;
+  joinDate?: string;
+  featuredWorkTitle?: string;
+  featuredWorkUrl?: string;
+  tags?: string[];
+  proofs?: {platform: string; link: string}[];
+};
 
 interface Article {
   views: any;
@@ -33,4 +36,4 @@ interface Article {
   tokenReward?: number;
   nftRequired?: string;
 }
-export type { Article, UserData };
+export type {Article, UserData};

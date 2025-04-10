@@ -5,7 +5,7 @@ import type React from "react";
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import ConnectWallet from "@/components/ui/ConnectWallet";
+import ConnectWallet from "@/components/shared/ConnectWallet";
 import { motion, AnimatePresence } from "framer-motion";
 // import { cn } from "@/lib/utils";
 
