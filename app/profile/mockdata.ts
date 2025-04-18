@@ -1,23 +1,5 @@
 import {Article, UserData} from '@/types/profile';
 
-export const mockData: UserData = {
-  avatarUrl: 'https://oagsprvqqc.ufs.sh/f/UfD2xF6GnX2EcfL01UJlA8B2dm9fC0gPJsvMEn6zkheIaXpO',
-  name: 'Jit Debnath',
-  username: 'jit',
-  bio: 'Bankai',
-  followers: 2000,
-  following: 1,
-  location: 'Some unknown place',
-  email: 'something',
-  website: 'something',
-  joinDate: '2022',
-  walletAddress: 'dawdawdaffwdad',
-  ensName: 'something',
-  tokenBalance: 0,
-  nftCount: 0,
-  verificationBadge: true,
-};
-
 export const mockArticles: Article[] = [
   {
     id: 1,
