@@ -1,14 +1,29 @@
 'use client';
 import { ProfileSidebar } from './profile';
 import { ArticleCard } from '@/components/shared/article-card';
-import { mockArticles } from './mockdata';
-import { UserData } from '@/types/profile';
+import { mockArticle } from './mockdata';
+import { Article, UserData } from '@/types/profile';
 import { useEffect, useState } from 'react';
 export default function Profile() {
 	const [WalletId, setWalletId] = useState<string | null>(null);
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search);
 		setWalletId(params.get('walletId'));
+	}, []);
+
+	const [articles, setArticles] = useState<Article[]>([]);
+	useEffect(() => {
+		const fetchArticles = async () => {
+			const res = await fetch('/api/test_profile');
+			const { projects } = await res.json();
+
+			const mocked: Article[] = projects.map((p: any, index: number) =>
+				mockArticle(p, index)
+			);
+			setArticles(mocked);
+		};
+
+		fetchArticles();
 	}, []);
 
 	const mockData: UserData = {
@@ -39,7 +54,7 @@ export default function Profile() {
 
 				{/* Right column: Published articles */}
 				<div className='lg:w-2/3'>
-					{mockArticles.map((article) => (
+					{articles.map((article) => (
 						<ArticleCard key={article.id} article={article} />
 					))}
 				</div>
