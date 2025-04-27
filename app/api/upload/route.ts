@@ -1,23 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Client } from 'pg';
+// import { Client } from 'pg';
 
-const conn = new Client({
-	user: 'postgres',
-	database: 'LNC',
-	password: 'admin',
-	port: 5432,
-});
+// const conn = new Client({
+// 	user: 'postgres',
+// 	database: 'LNC',
+// 	password: 'admin',
+// 	port: 5432,
+// });
 
-await conn.connect();
+// await conn.connect();
 
-await conn.query(`
-	CREATE TABLE IF NOT EXISTS project_higher (
-		key SERIAL PRIMARY KEY,
-		title VARCHAR,
-		description TEXT,
-		content TEXT
-	)
-`);
+// await conn.query(`
+// 	CREATE TABLE IF NOT EXISTS project_higher (
+// 		key SERIAL PRIMARY KEY,
+// 		title VARCHAR,
+// 		description TEXT,
+// 		content TEXT
+// 	)
+// `);
 
 export async function POST(req: NextRequest) {
 	try {
@@ -27,10 +27,10 @@ export async function POST(req: NextRequest) {
 			return NextResponse.json({ error: 'Missing parameters' }, { status: 400 });
 		}
 
-		await conn.query(
-			`INSERT INTO project_higher (title, description, content) VALUES ($1, $2, $3)`,
-			[title, description, content]
-		);
+		// await conn.query(
+		// 	`INSERT INTO project_higher (title, description, content) VALUES ($1, $2, $3)`,
+		// 	[title, description, content]
+		// );
 
 		return NextResponse.json({ success: true }, { status: 201 });
 	} catch (err) {
