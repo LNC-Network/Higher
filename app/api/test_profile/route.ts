@@ -1,14 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Client } from 'pg';
 
-const conn = new Client({
-	user: 'postgres',
-	database: 'LNC',
-	password: 'admin',
-	port: 5432,
-});
 
-await conn.connect();
 
 export async function GET(req: NextRequest) {
 	try {
