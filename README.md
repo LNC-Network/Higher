@@ -1,1 +1,1 @@
-# Higher
+# Higher - A Decentralized Content MarketPlace
