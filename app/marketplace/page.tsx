@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import React from 'react';
 import {
 	Select,
@@ -9,12 +9,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
-import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
+// import { Badge } from '@/components/ui/badge';
+// import Image from 'next/image';
 import { ArticleCard } from '@/components/shared/article-card';
-import { Article } from '@/types/profile';
-import { useState, useEffect } from 'react';
-import { mockArticle } from '../profile/mockdata';
+// import { Article } from '@/types/profile';
+// import { useState, useEffect } from 'react';
+// import { mockArticle } from '../_profile/mockdata';
 /* interface Article {
   id: number;
   title: string;
@@ -60,26 +60,26 @@ const Creator = [
 ];
 
 const Page = () => {
-	const [articles, setArticles] = useState<Article[]>([]);
-	useEffect(() => {
-		const fetchArticles = async () => {
-			const res = await fetch('/api/test_profile');
-			const { projects } = await res.json();
+	// const [articles, setArticles] = useState<Article[]>([]);
+	// useEffect(() => {
+	// 	const fetchArticles = async () => {
+	// 		const res = await fetch('/api/test_profile');
+	// 		const { projects } = await res.json();
 
-			const mocked: Article[] = projects.map((p: any, index: number) =>
-				mockArticle(p, index)
-			);
-			setArticles(mocked);
-		};
+	// 		const mocked: Article[] = projects.map((p: any, index: number) =>
+	// 			mockArticle(p, index)
+	// 		);
+	// 		setArticles(mocked);
+	// 	};
 
-		fetchArticles();
-	}, []);
-	/* fetch reverse data */
-	const handelOnClick = () => {
-		/* load more logic */
-	};
+	// 	fetchArticles();
+	// }, []);
+	// /* fetch reverse data */
+	// const handelOnClick = () => {
+	// 	/* load more logic */
+	// };
 	return (
-		<div className='w-full bg-gradient-to-br from-[#0f172a] to-[#1e293b]'>
+		<div className='w-full bg-gradient-to-br from-[#0f172a] to-[#1e293b] h-screen'>
 			<div className='max-w-7xl h-full mx-auto flex flex-col justify-center p-10 text-center'>
 				<h1 className='text-5xl font-bold'>
 					<span className='text-white'>Discover, Collect, and Trade</span>
@@ -145,15 +145,15 @@ const Page = () => {
 					</Select>
 				</div>
 				{/* Cards........................... */}
-				{articles.map((article) => (
+				{/* {articles.map((article) => (
 					<ArticleCard key={article.id} article={article} />
-				))}
+				))} */}
 				{/* Load More */}
-				<div className='mt-5' onClick={handelOnClick}>
+				{/* <div className='mt-5' onClick={handelOnClick}>
 					<Button className='rounded-3xl w-32'>Load More</Button>
-				</div>
+				</div> */}
 				{/* Creator content card */}
-				<div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-10'>
+				{/* <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-10'>
 					{Creator.map((creator) => (
 						<Card
 							key={creator.id}
@@ -181,7 +181,7 @@ const Page = () => {
 							</CardContent>
 						</Card>
 					))}
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

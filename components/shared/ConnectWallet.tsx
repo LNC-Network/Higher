@@ -228,9 +228,9 @@ const ConnectWallet: React.FC = () => {
   // Connected state
   return (
     <Avatar
-      onClick={() => {
-        router.push(`/profile?walletId=${account}`);
-      }}
+      // onClick={() => {
+      //   router.push(`/profile?walletId=${account}`);
+      // }}
       className='cursor-pointer w-10 h-10'
     >
       <AvatarImage src='' alt='User Avatar' />
