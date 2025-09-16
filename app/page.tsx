@@ -1,15 +1,18 @@
 // app/page.tsx (Next.js 13+ with App Router)
 // or pages/index.tsx (Next.js <=12)
 
+import { ThemeToggle } from "@/components/tiptap-templates/simple/theme-toggle"
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-900">
+    <main className="min-h-screen bg-white dark:bg-gray-900">
       {/* Header */}
-      <header className="flex justify-between items-center px-6 py-4 shadow bg-white">
+      <header className="flex justify-between items-center px-6 py-4 shadow bg-white dark:bg-gray-800">
         <h1 className="text-2xl font-bold">My Writings</h1>
         <nav className="space-x-4">
           <a href="/community" className="hover:text-blue-600">Community</a>
           <a href="/profile" className="hover:text-blue-600">Profile</a>
+          <ThemeToggle />
         </nav>
       </header>
 
@@ -17,7 +20,7 @@ export default function Home() {
       <section className="text-center py-20 px-6">
         <h2 className="text-4xl font-extrabold mb-4">Welcome to My Writing Space ✍️</h2>
         <p className="text-lg text-gray-600 max-w-xl mx-auto">
-          A place where I share my thoughts, essays, and stories.  
+          A place where I share my thoughts, essays, and stories.
           Simple, clean, and focused on words.
         </p>
         <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">
@@ -47,6 +50,6 @@ export default function Home() {
       <footer className="text-center py-6 text-gray-500 border-t mt-12">
         © {new Date().getFullYear()} My Writings. All rights reserved.
       </footer>
-    </main>
+    </main >
   );
 }
