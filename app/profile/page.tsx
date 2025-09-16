@@ -1,6 +1,6 @@
 "use client"; // If using Next.js App Router
-import ProfilePage from "./profile";
-import LoginPage from "./login";
+import ProfilePage from "../../components/profile/profile";
+import LoginPage from "../../components/profile/login";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
