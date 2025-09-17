@@ -5,11 +5,11 @@ import { ThemeToggle } from "@/components/tiptap-templates/simple/theme-toggle"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-900">
+    <main className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="flex justify-between items-center px-6 py-4 shadow bg-white dark:bg-gray-800">
-        <h1 className="text-2xl font-bold">My Writings</h1>
-        <nav className="space-x-4">
+      <header className="flex justify-between items-center px-6 py-4 shadow bg-secondary">
+        <h1 className="text-3xl">Higher</h1>
+        <nav className="space-x-4 flex justify-center items-center">
           <a href="/community" className="hover:text-blue-600">Community</a>
           <a href="/profile" className="hover:text-blue-600">Profile</a>
           <ThemeToggle />
@@ -19,7 +19,7 @@ export default function Home() {
       {/* Hero */}
       <section className="text-center py-20 px-6">
         <h2 className="text-4xl font-extrabold mb-4">Welcome to My Writing Space ✍️</h2>
-        <p className="text-lg text-gray-600 max-w-xl mx-auto">
+        <p className="text-lg text-foreground max-w-xl mx-auto">
           A place where I share my thoughts, essays, and stories.
           Simple, clean, and focused on words.
         </p>
@@ -34,9 +34,9 @@ export default function Home() {
         <div className="grid gap-6 md:grid-cols-2">
           {["Why I Write", "Minimalism in Coding", "Thoughts on Creativity"].map(
             (title, idx) => (
-              <div key={idx} className="p-6 bg-white rounded-xl shadow hover:shadow-md transition">
+              <div key={idx} className="p-6 bg-card rounded-xl shadow hover:shadow-md transition">
                 <h4 className="text-xl font-semibold mb-2">{title}</h4>
-                <p className="text-gray-600 text-sm mb-4">
+                <p className="text-foreground text-sm mb-4">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus ac nulla.
                 </p>
                 <a href="#" className="text-blue-600 hover:underline text-sm">Read more →</a>
