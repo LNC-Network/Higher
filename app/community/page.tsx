@@ -1,4 +1,5 @@
-import { ThemeToggle } from "@/components/tiptap-templates/simple/theme-toggle"
+"use client"
+import { ThemeToggle } from "@/components/shared/theme-toggle"
 export default function CommunityDocs() {
   const docs = [
     {

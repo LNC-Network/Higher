@@ -1,6 +1,6 @@
 // app/profile/page.tsx  (Next.js 13+ with App Router)
 // or pages/profile.tsx (Next.js <=12)
-
+"use client"
 export default function ProfilePage() {
   const user = {
     name: "Jit Debnath",
@@ -28,33 +28,33 @@ export default function ProfilePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-900">
+    <main className="min-h-screen">
       {/* Profile Header */}
-      <section className="bg-white shadow py-10 px-6 text-center">
+      <section className="bg-secondary shadow py-10 px-6 text-center">
         <img
           src={user.avatar}
           alt={user.name}
           className="w-24 h-24 rounded-full mx-auto mb-4 shadow"
         />
         <h1 className="text-2xl font-bold">{user.name}</h1>
-        <p className="text-gray-600 mt-2 max-w-md mx-auto">{user.bio}</p>
+        <p className=" mt-2 max-w-md mx-auto">{user.bio}</p>
       </section>
 
       {/* Posts */}
       <section className="px-6 py-12 max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold mb-6">My Posts</h2>
         {posts.length === 0 ? (
-          <p className="text-gray-500">You haven’t written any posts yet.</p>
+          <p className="">You haven’t written any posts yet.</p>
         ) : (
           <div className="space-y-6">
             {posts.map((post, idx) => (
               <div
                 key={idx}
-                className="p-6 bg-white rounded-xl shadow hover:shadow-md transition"
+                className="p-6 bg-card rounded-xl shadow hover:shadow-md transition"
               >
                 <h3 className="text-xl font-semibold">{post.title}</h3>
-                <p className="text-sm text-gray-500 mb-2">{post.date}</p>
-                <p className="text-gray-700 mb-4">{post.excerpt}</p>
+                <p className="text-sm  mb-2">{post.date}</p>
+                <p className=" mb-4">{post.excerpt}</p>
                 <a href="#" className="text-blue-600 hover:underline text-sm">
                   Read more →
                 </a>

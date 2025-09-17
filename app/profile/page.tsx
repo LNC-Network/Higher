@@ -1,21 +1,19 @@
-"use client"; // If using Next.js App Router
+"use client";
 import ProfilePage from "../../components/profile/profile";
 import LoginPage from "../../components/profile/login";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function CheckAuthPage() {
-    const router = useRouter();
-    const [token, setToken] = useState<string | null>(null);
-    useEffect(() => {
-        const token = localStorage.getItem("auth_token");
-        setToken(token);
-    }, [router]);
+    const [token, setToken] = useState<string | null | undefined>(undefined);
 
-    if (token) {
-        return <ProfilePage />;
-    } else {
-        // Not logged in → go to login
-        return <LoginPage />;
+    useEffect(() => {
+        const savedToken = localStorage.getItem("auth_token");
+        setToken(savedToken);
+    }, []);
+
+    if (token === undefined) {
+        return null;
     }
+
+    return token ? <ProfilePage /> : <LoginPage />;
 }

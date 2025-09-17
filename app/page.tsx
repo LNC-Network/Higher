@@ -1,7 +1,7 @@
 // app/page.tsx (Next.js 13+ with App Router)
 // or pages/index.tsx (Next.js <=12)
 
-import { ThemeToggle } from "@/components/tiptap-templates/simple/theme-toggle"
+import { ThemeToggle } from "@/components/shared/theme-toggle"
 
 export default function Home() {
   return (

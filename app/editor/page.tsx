@@ -1,5 +1,24 @@
-import { SimpleEditor } from '@/components/tiptap-templates/simple/simple-editor'
+import { AppSidebar } from "@/components/editor/app-sidebar"
+import { SiteHeader } from "@/components/editor/site-header"
+import {
+  SidebarInset,
+  SidebarProvider,
+} from "@/components/ui/sidebar"
 
-export default function App() {
-    return <SimpleEditor />
+export const iframeHeight = "800px"
+
+export default function Page() {
+  return (
+    <div className="[--header-height:calc(--spacing(14))]">
+      <SidebarProvider className="flex flex-col">
+        <SiteHeader />
+        <div className="flex flex-1">
+          <AppSidebar />
+          <SidebarInset>
+            Content Area
+          </SidebarInset>
+        </div>
+      </SidebarProvider>
+    </div>
+  )
 }
