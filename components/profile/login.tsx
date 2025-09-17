@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getProviders, signIn, useSession } from "next-auth/react";
+import { ClientSafeProvider, getProviders, LiteralUnion, signIn, useSession } from "next-auth/react";
+import { BuiltInProviderType } from "next-auth/providers/index";
 
 export default function LoginPage() {
-  const [providers, setProviders] = useState<any>(null);
+  const [providers, setProviders] = useState<Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider> | null
+  >(null);
   const { data: session } = useSession();
 
   // Load available providers
@@ -35,7 +37,7 @@ export default function LoginPage() {
     <main className="min-h-screen flex items-center justify-center ">
       <div className="p-8  shadow rounded-xl text-center w-80">
         <h1 className="text-2xl font-bold mb-6">Login</h1>
-        {Object.values(providers).map((provider: any) => (
+        {Object.values(providers).map((provider: ClientSafeProvider) => (
           <div key={provider.name}>
             <button
               onClick={() => signIn(provider.id, { callbackUrl: "/profile" })}

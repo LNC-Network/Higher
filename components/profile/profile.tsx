@@ -1,6 +1,9 @@
 // app/profile/page.tsx  (Next.js 13+ with App Router)
 // or pages/profile.tsx (Next.js <=12)
 "use client"
+
+import Image from "next/image";
+
 export default function ProfilePage() {
   const user = {
     name: "Jit Debnath",
@@ -31,10 +34,12 @@ export default function ProfilePage() {
     <main className="min-h-screen">
       {/* Profile Header */}
       <section className="bg-secondary shadow py-10 px-6 text-center">
-        <img
+        <Image
           src={user.avatar}
           alt={user.name}
-          className="w-24 h-24 rounded-full mx-auto mb-4 shadow"
+          height={24}
+          width={24}
+          className=" rounded-full mx-auto mb-4 shadow"
         />
         <h1 className="text-2xl font-bold">{user.name}</h1>
         <p className=" mt-2 max-w-md mx-auto">{user.bio}</p>
