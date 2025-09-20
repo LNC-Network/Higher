@@ -5,9 +5,11 @@ const nextConfig: import('next').NextConfig = {
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: 'oagsprvqqc.ufs.sh',
+				hostname: 'ui-avatars.com',
+				pathname: '/api/**',
 			},
 		],
 	},
+	devIndicators: false,
 };
 module.exports = nextConfig;

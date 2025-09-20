@@ -1,5 +1,6 @@
 import { AppSidebar } from "@/components/editor/app-sidebar"
 import { SiteHeader } from "@/components/editor/site-header"
+import Writer from "@/components/editor/text-editor"
 import {
   SidebarInset,
   SidebarProvider,
@@ -14,7 +15,7 @@ export default function Page() {
         <div className="flex flex-1">
           <AppSidebar />
           <SidebarInset>
-            Content Area
+            <Writer />
           </SidebarInset>
         </div>
       </SidebarProvider>

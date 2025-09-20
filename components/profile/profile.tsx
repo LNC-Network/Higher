@@ -37,8 +37,9 @@ export default function ProfilePage() {
         <Image
           src={user.avatar}
           alt={user.name}
-          height={24}
-          width={24}
+          height={54}
+          width={54}
+          unoptimized
           className=" rounded-full mx-auto mb-4 shadow"
         />
         <h1 className="text-2xl font-bold">{user.name}</h1>
